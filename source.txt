@@ -1,0 +1,18 @@
+
+LDA $250			// load A with immediate value 250
+LDB $1				// load B with immediate value 1
+
+loop:
+	ADD				// add registers A and B
+	STA 203			// store value in register A at address 203
+	LDO				// load output register with value from register A
+	OUT				// print integer
+	LDA $0x2d		// load A with immediate value 32 (space character)
+	LDO				// load output register with value from register A
+	OUT_C			// print ascii character
+	OUT_C			// print ascii character
+	OUT_C			// print ascii character
+	LDA 203			// load A with value in memory address 203
+	JNZ loop		// jump to label 'loop' if zero flag is not set
+
+HLT					// halt execution
